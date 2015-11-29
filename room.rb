@@ -1,24 +1,25 @@
 class Room
-  attr_reader :number, :type, :discount, :capacity
+  attr_accessor :number, :type, :rate
 
-  def initialize (room_number, room_type, discount, capacity)
-    @number = room_number
-    @type = room_type
-    @discount = discount
-    @capacity = capacity
-    @guests = []
-    @occupants = @guests.length
+  def initialize(options = {})
+    @number = options[:number]
+    @type = options[:type]
+    @rate = options[:rate]
   end
 
-  #full?
-  #occupants.size <= max_capacity
+  def number
+    @number
+  end
 
-  #add_occupant
+  def pretty_string
+    "Rooms #{@number.fixnum?} are available this evening"
+  end
 
-  #remove_occupant
+  def occupied
+    @number.to_i
+  end
 
-  #type => double / single
-
-  #rate
-
+  def rate
+    @rate
+  end
 end
